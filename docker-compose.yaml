@@ -4,7 +4,7 @@ services:
   payload:
     image: node:18-alpine
     ports:
-      - '${PORT}:3000'
+      - '3322:3000'
     volumes:
       - .:/
       - node_modules:/node_modules
@@ -13,10 +13,10 @@ services:
     depends_on:
       - mongo
     environment:
-      DATABASE_URI: ${DATABASE_URI}
-      PORT: ${PORT}
-      NODE_ENV: ${NODE_ENV}
-      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      DATABASE_URI: mongodb://mongo:27017/payload
+      PORT: 3322
+      NODE_ENV: development
+      PAYLOAD_SECRET: Fresh-Afar0-Bluish
 
   mongo:
     image: mongo:latest
