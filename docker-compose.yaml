@@ -6,9 +6,9 @@ services:
     ports:
       - '${PORT}:3000'
     volumes:
-      - .:/home/node/app
-      - node_modules:/home/node/app/node_modules
-    working_dir: /home/node/app/
+      - .:/
+      - node_modules:/node_modules
+    working_dir: /
     command: sh -c "yarn install && yarn dev"
     depends_on:
       - mongo
